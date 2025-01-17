@@ -1,114 +1,78 @@
-# Make your own Codewars Style Challenge
+# ABOUT
 
-In this workshop, you'll create your own programming challenge for others to solve, similar to the ones you might have tackled on Codewars. You'll write unit tests to validate solutions. Then you can share your challenge with other bootcampers for them to solve. If a submitted solution passes all your tests, it will be considered a correct solution - just like on Codewars. This is a great chance to get creative and come up with a programming challenge to stump your peers!
+SoC Cohort 18 Week 6 Hackathon Project - Testing and Codewars-stle Kata
 
-## 💡 OBJECTIVES FOR THE WORKSHOP
+Team HAT (Room 2): Hope Pichur, Alistair Lambert, Timothy Li
 
-Here's a glimpse of what you'll be achieving by the end of this workshop:
+As a team, we valued: fun, skill development and usability.
 
-- Clearly describing a problem/task that you want others to solve
-- Writing unit tests to check whether their solution to your task is correct
-- Present your project plan, story, and anything else you feel supports your creation process and final outcome in a document
+# PLANNING AND EXECUTION
 
-## 🎟️ TICKETS
+- Disney Ideation
 
-Time to dive into action! 🏊‍♂️ Here's what you'll be working on:
+* Gaming
+* ** Pokémon ** we decided on this theme
+* Dinosaurs
 
-### 🎫 Ticket 1 - Setup
+Each team-member was tasked with creating a Codewars-style Kata (a small coding challenge) within an overarching Pokemon theme.
 
-Install Vitest and optionally set up an NPM `test` script that conveniently runs your tests.
+We each took responsibility for creating a Kata involving a different data type:
 
-You will be making one kata each, but you will be in development teams. The aim is to co-elevate each other. There are several ways you can and should look to help each other:
+Hope: Array
+Alistair: Number
+Tim: String
 
-- Brainstorming: Helping each make your ideas better, and giving feedback to each other to add different perspectives and improve the end product
-- Planning: You can help validate each others plans, and sense check in a team review the direction of your products
-- Check-ins: Regular team stand-ups / check-ins will help make sure you are building and making progress together
-- Support: You should aim to help each other overcome issues if one of your team is stuck and cannot Google their way out of it
-- Testing: You can act as a first line user test for each others katas. You might find it a good idea to book in regular checkpoints to demo to each other and get initial feedback in quick bursts, making sure you can build in and adapt to any useful feedback before official release of your katas
+We worked indepedently on our own Kata but maintained constant communication to offer eachother assistance and discussion of ideas (via Teams meeting).
 
-### 🎫 Ticket 2 - Plan your kata
+The idea for my Kata was for a function that takes in the name of a Pokemon and returns a defined Pokemon cry (the sound a Pokemon typically makes).
 
-Attack this as you would any other problem - plan, plan, plan and use our agile approach to create steps that allow you to build MVPs and incrementally reach your stretch goals. Brainstorm options with a technique like Disney Ideation. Once you have a compelling challenge and story idea, start breaking it down. Think about the goals of your challenge, and the scenarios you could provide to test if people have reached those goals. Provide any examples or additional details that are necessary for someone taking on your kata to understand the problem, but don't give away so much that it removes the challenge. You want to strike a balance - not too vague but not spoon-feeding the solution either.
+E.g. Pikachu tends to say "Pika-pika"!
 
-Write your kata's scenario in a comment in `main.js` and include the start of an exported function that your audience will use to solve it (like you've seen on the katas you've done before). If it's useful to see an example:
+For MVP 1, the function called `pokeCryGenerator(pokemon)` would take the first 4 letters of the input, repeat it once, join it with a hyphen, make the second substring all lowercase, and return the result.
 
-```js
-/**
- * Hello challenger! Your task is to write a function named `transformLength` which takes in a string and returns 1 if the length of the string is even and otherwise -1.
- *
- * Your implementation should handle strings whose length is between 0 (inclusive) and 2500 (inclusive).
- *
- * A few examples:
- *    `transformLength("table")` should return -1 as the length of "table" is not even
- *    `transformLength("wizard")` should return 1 as the length of "wizard" is even
- */
-export function transformLength(string) {
-  // Good luck!
-}
-```
+E.g. pokeCryGenerator(Pikachu) would return "Pika-pika".
 
-ℹ️ The reason for leaving the function body empty is that you want the people solving your kata to write their own implementation from scratch. Your role is to provide the overall problem statement and function skeleton. The solving and coding is up to them! Leaving an incomplete skeleton function helps point them in the right direction without giving away a full working solution.
+For MVP 2, the difficulty of the Kata would increase, the tests would therefore need to cover more scenarios and edge cases - see the equivalence partitioning table below:
 
-### 🎫 Ticket 3 - Write your kata
+- Equivalence Partitioning Table
+  This table categorises different input types and expected outputs for the `pokeCryGenerator` function.
 
-When drafting your test cases, consider the different inputs that could be passed to the solution function and any edge cases you want to account for. You could put into practice tools such as Equivalency Partitioning, Boundary Value Analysis, and Decision Tables if its useful. Think of test values that will thoroughly cover the expected functionality. The number of tests is up to you, but aim for sufficient coverage to validate correctness.
+| Partition Type           | Input Example | Description                   | Expected Output |
+| ------------------------ | ------------- | ----------------------------- | --------------- |
+| Valid Names (4+ letters) | "Pikachu"     | Standard valid Pokémon name   | "Pika-pika"     |
+|                          | "Charmander"  | Standard valid Pokémon name   | "Char-char"     |
+|                          | "Bulbasaur"   | Standard valid Pokémon name   | "Bulb-bulb"     |
+|                          | "Squirtle"    | Standard valid Pokémon name   | "Squi-squi"     |
+| Valid Names (3 letters)  | "Mew"         | Name has only 3 letters       | "Mew-mew"       |
+|                          | "Muk"         | Name has only 3 letters       | "Muk-muk"       |
+| Edge Cases               | ""            | Empty string input            | ""              |
+|                          | " "           | String containing only spaces | ""              |
+|                          | " Dratini "   | Name with extra spaces        | "Drat-drat"     |
+| Capitalisation Handling  | "PIKACHU"     | All uppercase input           | "Pika-pika"     |
+|                          | "pikachu"     | All lowercase input           | "Pika-pika"     |
+|                          | "pIkAcHu"     | Mixed case input              | "Pika-pika"     |
 
-Since you'll write tests before seeing people's solutions, focus on defining expected outputs for given inputs, without assumptions about how people actually wrote the code. You're testing for outcomes. You could follow a TDD workflow - write a failing test, then temporarily add code to pass it. Just be sure to remove the solution code before sharing the kata. This helps ensure your tests fail when logic is missing or incorrect and pass when implemented properly.
+- The TDD cycle
 
-If it's useful to see an example (continuing the `checkLength` example from earlier):
+1. Red: Write a failing test.
+2. Green: Write the simplest code to pass the test.
+3. Refactor: Improve the code while ensuring tests still pass.
 
-```js
-import { test, expect } from "vitest";
-import { checkLength } from "./main.js";
+# USER GUIDE
 
-test("should return -1 for strings with an odd length", () => {
-  const expected = -1;
-  const actual = checkLength("table");
-  expect(actual).toBe(expected);
-});
+Preface:
 
-test("should return 1 for strings with an even length", () => {
-  const expected = 1;
-  const actual = checkLength("wizard");
-  expect(actual).toBe(expected);
-});
-```
+Project uses the Node.js runtime environment.
+User interacts with project directly in files and terminal.
+Ensure requires dependencies are installed 'npm install'
 
-🎯 At this stage you should have a description of the problem in `main.js` and some tests in `main.test.js`.
+Steps:
 
-### 🎫 Ticket 4 - Check your tests
+1. In main.js please read the challenge instructions.
+2. Complete the missing code in the pokeCryGenerator function.
+3. In the terminal type 'npn run test'
+4. (a) If any test fails: "Please refactor and try again!".
+   (b) If all tests pass: "Congratulations you've passed the Kata and are on your way to becoming a Pokemon master!".
+5. Please see other Katas created by my teammates Hope Pichur and Alistair Lambert.
 
-To verify your tests, temporarily add a working implementation to the solution function in `main.js`. Check that the tests fail before implementation and pass when the function is coded correctly. This validates that your tests accurately check for both incorrect and correct solutions. Remember to remove the solution code afterwards before sharing the kata.
-
-If it's useful to see an example (continuing the `checkLength` example from earlier):
-
-```js
-export function checkLength(string) {
-  // Temporarily added the line below to check if tests pass, but will remove it before committing and pushing.
-  return string.length % 2 === 0 ? 1 : -1;
-}
-```
-
-### 🎫 Ticket 5 - Share your kata
-
-Before pushing your final kata repository, be sure to remove any solution code you added for test validation. You want to provide only the kata description, skeleton function, and test cases - no actual solutions. Once ready, share your repo link in the [learn.schoolofcode.co.uk Hackathon Channel](https://learn.schoolofcode.co.uk/path-player?courseid=bc17-qe&unit=66acf966524bf23f05018063Unit) so other bootcampers can find it, clone it, implement solutions, and run your tests to check their progress. This allows them to solve the programming challenge you've created!
-
-Share it with following format:
-
-```
-Room: REPLACE_ME_WITH_YOUR_ROOM_NUMBER
-Name: REPLACE_ME_WITH_YOUR_NAME
-Link: REPLACE_ME_WITH_A_LINK_TO_YOUR_PUBLIC_GITHUB_REPO_CONTAINING_THE_KATA
-Overview: REPLACE_ME_WITH_A_BRIEF_DESCRIPTION_OF_WHAT_YOUR_KATA_IS_ABOUT
-```
-
-If it's not public already, remember to change the visibility of your repository to public.
-
-### 🎫 Ticket 6 - Present you kata
-
-Make sure you present your project in [the markdown file here](/PROJECT_PRESENTATION.md) - this will be assessed alongside your actual kata. Treat this as an asynchronous presentation - anything you would want to talk through (plans, brainstorming, final results, user feedback, etc) should go in here.
-
-### 🎫 Ticket 7 - Complete katas from others
-
-To solve katas created by other bootcampers, first clone their repository using the shared link. `cd` into the folder, run `npm install` to get the dependencies, then implement a solution in main.js. Execute their test cases to validate your code against their requirements. Provide feedback on the clarity of their instructions, difficulty level, and effectiveness of the tests. Engaging with each other's challenges allows everyone to learn. Make sure to critique respectfully - creating a programming challenge is difficult!
-
+Thank you very much, we look forward to receiving any feedback and hope you had fun!.
