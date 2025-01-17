@@ -64,7 +64,7 @@ Preface:
 
 Project uses the Node.js runtime environment.
 User interacts with project directly in files and terminal.
-Ensure requires dependencies are installed 'npm install'
+Ensure required dependencies are installed 'npm install'
 
 Steps:
 
