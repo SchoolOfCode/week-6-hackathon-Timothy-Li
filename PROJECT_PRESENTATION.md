@@ -1,14 +1,12 @@
-https://readme.so/
-
 # ABOUT
 
 SoC Cohort 18 Week 6 Hackathon Project - Testing and Codewars-stle Kata
 
-Team HAT: Hope Pichur, Alistair Lambert, Timothy Li
+Team HAT (Room 2): Hope Pichur, Alistair Lambert, Timothy Li
 
-As a team, we value: fun, skill development and usability
+As a team, we valued: fun, skill development and usability.
 
-# PLANNING AND STORY
+# PLANNING AND EXECUTION
 
 - Disney Ideation
 
@@ -66,14 +64,15 @@ Preface:
 
 Project uses the Node.js runtime environment.
 User interacts with project directly in files and terminal.
+Ensure requires dependencies are installed 'npm install'
 
 Steps:
 
 1. In main.js please read the challenge instructions.
 2. Complete the missing code in the pokeCryGenerator function.
-3. In the terminal type 'npx run test'
+3. In the terminal type 'npn run test'
 4. (a) If any test fails: "Please refactor and try again!".
-   (b) If all tests pass: "Congratulations you've passed the Kata and are on your way to becoming a Pokemon linguistic expert!".
+   (b) If all tests pass: "Congratulations you've passed the Kata and are on your way to becoming a Pokemon master!".
 5. Please see other Katas created by my teammates Hope Pichur and Alistair Lambert.
 
 Thank you very much, we look forward to receiving any feedback and hope you had fun!.
